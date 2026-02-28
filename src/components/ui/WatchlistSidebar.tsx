@@ -1,0 +1,30 @@
+import { motion, AnimatePresence } from "motion/react";
+import { Trash2 } from "lucide-react";
+import { WatchlistItem } from "../../types/market";
+
+interface WatchlistSidebarProps {
+    items: WatchlistItem[];
+    onRemove: (id: string) => void;
+}
+
+export const WatchlistSidebar = ({ items, onRemove }: WatchlistSidebarProps) => (
+    <div>
+        <h3 className="text-lg font-bold text-white mb-4">Watchlist</h3>
+        <AnimatePresence>
+            {items.map((item) => (
+                <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="flex justify-between p-3 bg-[#151619] rounded-lg mb-2"
+                >
+                    <span>{item.name}</span>
+                    <button onClick={() => onRemove(item.id)}>
+                        <Trash2 size={14} className="text-zinc-500 hover:text-red-400 transition-colors" />
+                    </button>
+                </motion.div>
+            ))}
+        </AnimatePresence>
+    </div>
+);
