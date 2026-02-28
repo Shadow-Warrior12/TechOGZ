@@ -102,7 +102,7 @@ async function startServer() {
     await writeDB(db);
 
     res.json(db.watchlist);
-  });
+  }); 
 
   // --------------------------
   // DEV / PROD HANDLING
