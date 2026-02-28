@@ -179,7 +179,7 @@ export default function Dashboard() {
                             <stop offset="95%" stopColor={selectedCoinData?.price_change_percentage_24h >= 0 ? "#10b981" : "#ef4444"} stopOpacity={0} />
                           </linearGradient>
                         </defs>
-
+ 
                         <CartesianGrid
                           strokeDasharray="3 3"
                           vertical={false}
